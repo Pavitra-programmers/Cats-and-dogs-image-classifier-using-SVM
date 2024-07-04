@@ -10,7 +10,7 @@ import pickle
 model = ResNet50(weights='imagenet', include_top=False)
 
   # Path to the Kaggle Dogs vs. Cats dataset
-dataset_path = r'C:\Users\dines\OneDrive\Desktop\Github\Cats-and-dogs-image-classifier-using-SVM\train1'
+dataset_path = 'your dataset'
 
   # Function to extract features from an image
 def extract_features(img_path):
@@ -29,12 +29,12 @@ def extract_features(img_path):
 labels = []
 features_list = []
 i=0
-  # Traverse the dataset directory and collect image paths and labels
+  #Extracting the features of the image and thier labels
 for file in os.listdir(dataset_path):         
     img_path = os.path.join(dataset_path, file)
-    features = extract_features(img_path)
+    features = extract_features(img_path)#using the above function
     features_list.append(features)
-    if file[0] == 'd':
+    if file[0] == 'd':#labeling our data
       labels.append(1)
     else:
       labels.append(0)
